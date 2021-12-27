@@ -1,5 +1,5 @@
 # Script to elevation profile
-# Data from IGN
+# Data from IGN - http://www.ign.es/web/ign/portal 
 # Dic 2021
 # Julia G. de Aledo
 
@@ -103,7 +103,7 @@ g3 <- g1 + inset_element(g_contour, 0.65, 1.03, 0.8, 1.23)
 g3
 
 # 5. Save it
-ggsave ("profile.png", g3, width = 15, height = 10)
+ggsave ("profile_1.png", g3, width = 15, height = 10, scale=0.9)
 
 # enjoy!
 
