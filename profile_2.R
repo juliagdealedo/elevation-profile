@@ -81,13 +81,15 @@ g <- ggplot(data = pdf_labe2, aes(dist, dem, color = dem, label=lab)) +
     y = "Elevation [m]", x="Distance along profile [km]",  color = "Elevation [m]") 
 
 # 2. Plot labels
-g1 <- g + geom_label_repel(fill = NA,   xlim = c(-Inf, 700), ylim = c(-Inf, Inf), min.segment.length = 0, seed = 42, 
-                           box.padding = 1.3, label.padding=0.3, family="piazzolla", segment.colour = "white", colour="white", 
+g1 <- g + geom_label_repel(fill = NA,   xlim = c(-Inf, 700), ylim = c(-Inf, Inf), size=7, min.segment.length = 0, seed = 42, 
+                           box.padding = 1.3, label.padding=0.2, family="piazzolla", segment.colour = "white", colour="white", 
                            force_pull=2, na.rm=T, direction="both", nudge_y=9, nudge_x=9) +
   theme_solarized(light=F, base_family="piazzolla", base_size = 12) +
   theme (plot.title = element_text(color="white", size=40, face="bold"),
-         plot.subtitle = element_text(size=13) ,
-         panel.grid.major = element_line(size = 0.01, linetype = 'solid',colour = "white") ) +
+         plot.subtitle = element_text(size=20) ,
+         panel.grid.major = element_line(size = 0.01, linetype = 'solid',colour = "white"),
+         axis.text = element_text(size=10),
+         axis.title = element_text(size=20))+
   annotate("text", label = "Celorio", x = 4, y = -10, size = 4, colour = "white", family="piazzolla")+
   annotate("text", label = "Playa La Mamola",x = 740, y = -10, size = 4, colour = "white", family="piazzolla")
 
@@ -98,7 +100,7 @@ g_contour <- ggplot() +
                color = "white", size = 1, alpha = 0.8, lineend = "round")
 
 # 4. Join both plots with tha map to the right up side
-g3 <- g1 + inset_element(g_contour, 0.65, 1.03, 0.8, 1.23)
+g3 <- g1 + inset_element(g_contour, 0.95, 1.1, 1.1, 1.3)
 
 g3
 
